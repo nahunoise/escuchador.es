@@ -1,23 +1,112 @@
+---
+// Layout principal
+---
 <!doctype html>
-<html lang="en">
+<html lang="es"> 
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <link rel="icon" type="image/png" href="/logo.png" />
+	<link rel="apple-touch-icon" href="/logo.png" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    
+    <title>Escuchadores | Paisaje Sonoro & Bioacústica</title>
+    <meta name="description" content="Transformamos el paisaje sonoro de tu hotel o área natural en un activo estratégico. Inteligencia Artificial aplicada a la biodiversidad." />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Escuchadores | La última frontera del lujo es el sonido" />
+    <meta property="og:description" content="En un mercado saturado de lujo visual, el sonido es la última frontera de la exclusividad. Transformamos su entorno natural en un activo estratégico." />
+	<meta name="description" content="En un mercado saturado de lujo visual, el sonido es la última frontera de la exclusividad. Transformamos su entorno natural en un activo estratégico." />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:url" content="https://escuchador.es" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Escuchadores | Paisaje Sonoro" />
+    <meta name="twitter:image" content="/og-image.jpg" />
+</head>
+    <body>
+        <slot />
+    </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+<style is:global> /* 2. Agregamos is:global */
+    :root {
+        --primary-color: #2F360D;
+        --bg-color: #FFFFFF;
+    }
+
+    html,
+    body {
+        margin: 0;
+        width: 100%;
+        min-height: 100%; /* Mejor que height: 100% para landings largas */
+        background-color: var(--bg-color);
+        color: var(--primary-color);
+        font-family: 'Inter', sans-serif;
+        -webkit-font-smoothing: antialiased; /* Para que la fuente se vea más fina */
+    }
+
+    /* 3. Estilos base para tus titulares según tus specs */
+    h1, h2 {
+        font-family: 'Instrument Serif', serif;
+        font-weight: 400;
+        margin: 0;
+        line-height: 0.95;
+    }
+
+    /* Reset básico para que no haya márgenes extraños */
+    * {
+        box-sizing: border-box;
+    }
+	/* ESTILOS DE PÁGINA */
+	/* Estilo para todos los enlaces */
+  a {
+    text-color: inherit; /* Hereda el color del padre (en este caso el verde #2F360D) */
+    color: inherit; 
+    text-decoration: none; /* Quita el subrayado por defecto */
+    transition: opacity 0.3s ease; /* Para que al pasar el ratón el cambio sea suave */
+  }
+
+  /* Efecto al pasar el ratón (opcional pero recomendado) */
+  a:hover {
+    opacity: 0.7;
+  }
+
+  /* Estilo específico para los enlaces del Navbar */
+  .nav-links a {
+    color: #2F360D;
+    text-transform: lowercase; /* Mantener el estilo minimalista de la captura */
+  }
+
+  .logo img {
+    /* Nombre de la animación | Duración | Curva de tiempo | Repetición */
+    animation: rotacion-sutil 30s linear infinite;
+    display: block;
+  }
+
+  /* Definición del movimiento */
+  @keyframes rotacion-sutil {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+.logo img:hover {
+    animation-play-state: paused;
+    cursor: pointer;
+  }
+  /* Pausar rotación si el usuario prefiere no tener movimiento (Accesibilidad) */
+  @media (prefers-reduced-motion: reduce) {
+    .logo img {
+      animation: none;
+    }
+  }
+	
 </style>

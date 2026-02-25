@@ -1,11 +1,461 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+  <nav class="navbar">
+    <div class="logo">
+      <img src="/logo.png" alt="Escuchadores" width="70" class="rotating-logo" />
+    </div>
+    <ul class="nav-links">
+      <li><a href="#inicio">inicio</a></li>
+      <li><a href="#servicios">servicios</a></li>
+      <li><a href="#contacto">contacto</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <header class="hero" id="inicio">
+      <div class="hero-content">
+        <p class="pre-title">Así como hay miradores, deben existir escuchadores.</p>
+        <h1>Descubre el <em>potencial</em> de tu paisaje sonoro de tu hotel, finca o área natural.</h1>
+        <p class="body-text">
+          Combinamos diseño acústico e Inteligencia Artificial para medir tu biodiversidad y crear experiencias de lujo sostenibles.
+        </p>
+        <a href="#contacto" class="btn-cta">Solicitar un diagnóstico bioacústico</a>
+      </div>
+      <div class="hero-image">
+        <div class="mask-capsule">
+          <img src="/hero-artefacto.jpg" alt="Artefacto de escucha" />
+        </div>
+      </div>
+    </header>
+
+    <section class="section-padding reveal">
+      <h2 class="h2-large">El sonido como una ventaja competitiva. En un mercado saturado de lujo visual, <em>el sonido es la última frontera</em> de la exclusividad.</h2>
+      
+      <div class="grid-three">
+        <div class="col reveal" style="transition-delay: 0.1s;">
+          <p><strong>Atrae al nuevo viajero</strong><br/>
+          El turista de naturaleza busca autenticidad. Ofrécele escuchar la vida que alberga tu espacio en tiempo real.</p>
+        </div>
+        <div class="col reveal" style="transition-delay: 0.2s;">
+          <p><strong>Datos didácticos, no suposiciones</strong><br/>
+          índices de biodiversidad y fauna con índices de biodiversidad reales.</p>
+        </div>
+        <div class="col reveal" style="transition-delay: 0.3s;">
+          <p><strong>Diseño que integra</strong><br/>
+          Nuestro artefacto de escucha es una pieza de diseño artesanal en madera y acero que embellece tu propiedad.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="split-section reveal">
+      <div class="content">
+        <h2 class="h2-large">Transformamos el silencio en información y la información en <em>ingresos</em></h2>
+        <p class="body-text">Hoy, ofrecer una habitación bonita ya no es suficiente. Con Escuchadores, transformas tu entorno natural en una biblioteca sonora viva.</p>
+        <p class="body-text">Permite que tus huéspedes no solo vean el bosque, sino que entiendan su lenguaje.</p>
+      </div>
+      <div class="visual">
+        <div class="mask-circle">
+          <img src="/textura-madera.jpg" alt="Madera natural" />
+        </div>
+      </div>
+    </section>
+
+    <section class="split-section reverse reveal">
+      <div class="visual">
+        <div class="mask-circle">
+          <img src="/persona-escuchando.jpg" alt="Experiencia sonora" />
+        </div>
+      </div>
+      <div class="content">
+        <h2 class="h2-large">Tu paisaje sonoro es una fuente inagotable de historias que contar</h2>
+        <p class="body-text">Elevamos la categoría de tu establecimiento ofreciendo una conexión sensorial profunda que el 99% de tu competencia ignora.</p>
+        <a href="#" class="btn-cta">Descubre las historias</a>
+      </div>
+    </section>
+
+ <section class="section-padding reveal">
+  <h2 class="h2-large">Del sonido a un activo estratégico: Nuestro proceso</h2>
+  <div class="proceso-container">
+    
+    <div class="proceso-item reveal">
+      <div class="proceso-img">
+        <div class="mask-capsule small">
+          <img src="/proceso-1.jpg" alt="Instalación" />
+        </div>
+      </div>
+      <div class="proceso-text">
+        <h3>01. Instalación del Artefacto</h3>
+        <p>Desplegamos nuestras estaciones de escucha pasiva, diseñadas para resistir y armonizar con el entorno.</p>
+      </div>
+    </div>
+
+    <div class="proceso-item reveal" style="transition-delay: 0.1s;">
+      <div class="proceso-img">
+        <div class="mask-capsule small">
+          <img src="/proceso-2.jpg" alt="Análisis IA" />
+        </div>
+      </div>
+      <div class="proceso-text">
+        <h3>02. Análisis con Inteligencia Artificial</h3>
+        <p>Nuestra IA procesa largas horas de grabación de los sonidos, identificando especies y patrones de salud ecosistémica invisibles al oído humano.</p>
+      </div>
+    </div>
+
+    <div class="proceso-item reveal" style="transition-delay: 0.2s;">
+      <div class="proceso-img">
+        <div class="mask-capsule small">
+          <img src="/proceso-3.jpg" alt="Dashboard" />
+        </div>
+      </div>
+      <div class="proceso-text">
+        <h3>03. Dashboard de Gestión</h3>
+        <p>Accede a una plataforma donde el sonido se traduce en indicadores de valor, informes de sostenibilidad y contenido para tus huéspedes.</p>
+      </div>
+    </div>
+
+    <div class="proceso-item reveal" style="transition-delay: 0.3s;">
+      <div class="proceso-img">
+        <div class="mask-capsule small">
+          <img src="/proceso-4.jpg" alt="Experiencias" />
+        </div>
+      </div>
+      <div class="proceso-text">
+        <h3>04. Experiencias Inmersivas</h3>
+        <p>Diseñamos rutas sonoras y puntos de atención acústica que transforman una caminata común en un viaje sensorial.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <div class="banner-forest reveal">
+        <div class="banner-text">
+            <p>Si hay vida, hay sonidos.</p>
+            <p>Si hay sonidos, hay información.</p>
+            <p>Si hay información, hay valor.</p>
+        </div>
+    </div>
+
+    <section class="section-padding reveal">
+        <h2 class="h2-large">Equipo y tecnología con propósito</h2>
+        <p class="body-text">Nuestro equipo de colaboradores está formado por investigadores, ingenieros y conservacionistas comprometidos con llevar la inteligencia artificial al límite de la innovación ecológica.</p>
+        
+        <h2 class="h2-large margin-top">Alianzas</h2>
+        
+        <div class="logos-grid">
+            <div class="logo-item reveal" style="transition-delay: 0.1s;">
+                <img src="/logos/alianza1.png" alt="Logo Alianza 1" />
+            </div>
+            <div class="logo-item reveal" style="transition-delay: 0.2s;">
+                <img src="/logos/alianza2.png" alt="Logo Alianza 2" />
+            </div>
+            <div class="logo-item reveal" style="transition-delay: 0.3s;">
+                <img src="/logos/alianza3.png" alt="Logo Alianza 3" />
+            </div>
+            <div class="logo-item reveal" style="transition-delay: 0.4s;">
+                <img src="/logos/alianza4.png" alt="Logo Alianza 4" />
+            </div>
+            
+        </div>
+    </section>
+    <section class="section-padding text-center reveal">
+        <h2 class="h2-large">Convierte tu paisaje sonoro en una ventaja competitiva</h2>
+        <p class="body-text centered">Activa una nueva forma de atraer visitantes, medir biodiversidad y diferenciar tu territorio.</p>
+        
+        <div class="beneficios reveal">
+            <h3 class="beneficios-title">Beneficios</h3>
+            <ul>
+                <li>Cono acústico</li>
+                <li>Placa personalizada con nombre del establecimiento</li>
+                <li>Guía de uso para huéspedes</li>
+                <li>Storytelling personalizado</li>
+                <li>Fotos profesionales para marketing</li>
+            </ul>
+        </div>
+        <a href="#" class="btn-cta reveal">Activar el potencial</a>
+    </section>
+
+    <footer class="contacto reveal" id="contacto">
+      <h2 class="h2-large">Contacto</h2>
+      <div class="info">
+        <p>hola@escuchador.es</p>
+        <p>+34 604 831 787</p>
+        <p>Madrid, España</p>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15 
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          // Una vez animado, dejamos de observar para mejorar rendimiento
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const targets = document.querySelectorAll('.reveal');
+      targets.forEach(target => observer.observe(target));
+    });
+  </script>
 </Layout>
+
+<style>
+  /* --- CONFIGURACIÓN GLOBAL --- */
+  .section-padding { padding: 8rem 8%; }
+  .text-center { text-align: center; }
+  .margin-top { margin-top: 4rem; }
+  em { font-style: italic; }
+  a { color: inherit; text-decoration: none; transition: opacity 0.3s; }
+  a:hover { opacity: 0.7; }
+
+  /* --- EFECTOS DE REVELADO (SCROLL) --- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.2s cubic-bezier(0.2, 1, 0.3, 1), 
+                transform 1.2s cubic-bezier(0.2, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* --- NAVBAR --- */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 8%;
+  }
+  .nav-links {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+    text-transform: lowercase;
+  }
+
+  .rotating-logo {
+    animation: rotacion-sutil 25s linear infinite;
+  }
+  @keyframes rotacion-sutil {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* --- HERO --- */
+  .hero {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3.0rem;
+    padding: 1rem 8% 5rem 8%;
+    align-items: center;
+    min-height: 85vh;
+  }
+  h1 {
+    font-size: clamp(60px, 7.5vw, 85px);
+    margin: 1rem 0;
+    line-height: 0.9;
+  }
+  .pre-title { font-size: 1.3rem; }
+  .body-text {
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.4;
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+  }
+  .body-text.centered { margin-left: auto; margin-right: auto; }
+
+  /* --- TITULARES GRANDES (H2) --- */
+  .h2-large { 
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    font-size: clamp(55px, 8.5vw, 85px); 
+    line-height: 0.85;
+    margin-bottom: 4rem;
+    max-width: 1300px;
+  }
+
+  /* --- SECCIONES SPLIT --- */
+  .split-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8%;
+    padding: 8rem 8%;
+    align-items: center;
+  }
+  .reverse { direction: ltr; }
+  .reverse .visual { order: 1; }
+  .reverse .content { order: 2; }
+
+  /* --- MÁSCARAS --- */
+  .mask-capsule {
+    width: 100%;
+    aspect-ratio: 0.75 / 1; 
+    border-radius: 500px; 
+    overflow: hidden;
+  }
+  .mask-circle {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .mask-capsule img, .mask-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* --- GRIDS Y LISTAS --- */
+  .grid-three {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+  }
+  .grid-three p { font-size: 18px; line-height: 1.5; }
+
+  .proceso-list p {
+    font-size: 22px;
+    margin-bottom: 2.5rem;
+    line-height: 1.4;
+    max-width: 900px;
+  }
+
+  /* --- BANNER --- */
+  .banner-forest {
+    min-height: 75vh;
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/bosque.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    margin: 6rem 0;
+  }
+  .banner-text {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(35px, 6vw, 75px);
+    line-height: 0.5; /* Corregido para que no se pisen las frases */
+  }
+
+  /* --- BOTONES --- */
+  .btn-cta {
+    display: inline-block;
+    padding: 1.2rem 3rem;
+    border: 1px solid #2F360D;
+    border-radius: 60px;
+    font-size: 1.1rem;
+    color: #2F360D;
+    background-color: transparent;
+    text-decoration: none;
+    transition: all 0.4s ease;
+  }
+
+  .btn-cta:hover {
+    background-color: #2F360D;
+    color: #FFFFFF;
+  }
+
+  /* --- BENEFICIOS --- */
+  .beneficios {
+    margin: 5rem auto;
+    text-align: left;
+    max-width: 650px;
+  }
+  .beneficios-title { font-size: 36px; margin-bottom: 2rem; }
+  .beneficios ul { list-style: disc; font-size: 22px; line-height: 2.2; padding-left: 2rem; }
+
+  /* --- FOOTER --- */
+  .contacto { padding: 10rem 8%; text-align: center; }
+  .info { font-size: 26px; margin-top: 3rem; }
+
+  /* --- RESPONSIVE --- */
+  @media (max-width: 1024px) {
+    .hero, .split-section { grid-template-columns: 1fr; text-align: center; }
+    .hero-content { display: flex; flex-direction: column; align-items: center; }
+    .reverse .visual { order: -1; }
+    .grid-three { grid-template-columns: 1fr; }
+  }
+
+  /* --- SECCIÓN ALIANZAS (LOGOS) --- */
+  .logos-grid {
+    display: grid;
+    /* Crea columnas automáticas de mínimo 150px que se ajustan solas */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 4rem;
+    align-items: center;
+    margin-top: 4rem;
+  }
+
+  .logo-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: grayscale(1); /* Los pone en blanco y negro para no distraer */
+    opacity: 0.6;
+    transition: all 0.5s ease;
+  }
+
+  .logo-item:hover {
+    filter: grayscale(0); /* Recuperan color al pasar el ratón */
+    opacity: 1;
+    transform: scale(1.05); /* Crecen un poquito */
+  }
+
+  .logo-item img {
+    max-width: 100%;
+    height: auto;
+    max-height: 80px; /* Evita que logos muy altos rompan la línea */
+    object-fit: contain;
+  }
+
+  /* Ajuste para móvil */
+  @media (max-width: 768px) {
+    .logos-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
+      gap: 2rem;
+    }
+  }
+
+  /* --- ESTRUCTURA PROCESO --- */
+  .proceso-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+  .proceso-item {
+    display: grid;
+    grid-template-columns: 200px 1fr; /* Columna de imagen fija y texto fluido */
+    gap: 4rem;
+    align-items: center;
+    border-bottom: 1px solid rgba(47, 54, 13, 0.1);
+    padding-bottom: 3rem;
+  }
+  .proceso-text h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: #2F360D;
+  }
+  .mask-capsule.small {
+    width: 100%;
+    height: 250px; /* Tamaño controlado para los pasos */
+  }
+</style>
