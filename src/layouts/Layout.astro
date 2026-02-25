@@ -34,124 +34,63 @@
     </body>
 </html>
 
-<style is:global> /* 2. Agregamos is:global */
+<style is:global>
     :root {
         --primary-color: #2F360D;
         --bg-color: #FFFFFF;
     }
 
-   html {
+    /* FIX DEFINITIVO PARA SCROLL EN IPHONE */
+    html {
         margin: 0;
         padding: 0;
         width: 100%;
-        /* El scroll debe estar permitido en el HTML */
-        overflow-x: hidden; 
+        overflow-x: hidden; /* Solo ocultamos el horizontal */
         scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
     }
 
     body {
         margin: 0;
         padding: 0;
         width: 100%;
-        /* En el body, overflow-x hidden pero permitimos que el eje Y fluya */
-        overflow-x: hidden;
-        overflow-y: visible; 
-        position: relative; /* Ayuda a Safari a calcular mejor los contenedores */
-        min-height: 100%;
+        min-height: 100vh;
         background-color: var(--bg-color);
         color: var(--primary-color);
         font-family: 'Inter', sans-serif;
         -webkit-font-smoothing: antialiased;
-        -webkit-text-size-adjust: 100%;
+        /* Evitamos que el body bloquee el scroll */
+        overflow-x: hidden;
+        position: relative;
     }
 
     * {
         box-sizing: border-box;
     }
 
-    /* FIX ESPECÍFICO PARA EL NAVBAR EN MÓVIL */
-    .navbar {
-        width: 100%;
-        max-width: 100vw;
-        overflow: hidden; /* Evita que el contenido empuje hacia la derecha */
-    }
-
-    /* TU BANNER FOREST (Asegúrate de que no use 100vw si está dentro de un padre con padding) */
-    .banner-forest {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-        box-sizing: border-box;
-    }
-
-    /* Ajuste de los reveal para iPhone */
-    .reveal {
-        will-change: opacity, transform;
-        /* Reducimos un poco el desplazamiento en móvil para evitar que Safari se maree */
-    }
-    
-    @media (max-width: 768px) {
-        .reveal {
-            transform: translateY(20px); /* Menos agresivo que 40px */
-        }
-    }
-
-    /* 3. Estilos base para tus titulares según tus specs */
-    h1, h2 {
+    /* Titulares */
+    h1, h2, h3 {
         font-family: 'Instrument Serif', serif;
         font-weight: 400;
         margin: 0;
         line-height: 0.95;
     }
 
-    /* Reset básico para que no haya márgenes extraños */
-    * {
-        box-sizing: border-box;
+    /* Enlaces */
+    a {
+        color: inherit; 
+        text-decoration: none; 
+        transition: opacity 0.3s ease;
     }
-	/* ESTILOS DE PÁGINA */
-	/* Estilo para todos los enlaces */
-  a {
-    text-color: inherit; /* Hereda el color del padre (en este caso el verde #2F360D) */
-    color: inherit; 
-    text-decoration: none; /* Quita el subrayado por defecto */
-    transition: opacity 0.3s ease; /* Para que al pasar el ratón el cambio sea suave */
-  }
 
-  /* Efecto al pasar el ratón (opcional pero recomendado) */
-  a:hover {
-    opacity: 0.7;
-  }
-
-  /* Estilo específico para los enlaces del Navbar */
-  .nav-links a {
-    color: #2F360D;
-    text-transform: lowercase; /* Mantener el estilo minimalista de la captura */
-  }
-
-  .logo img {
-    /* Nombre de la animación | Duración | Curva de tiempo | Repetición */
-    animation: rotacion-sutil 30s linear infinite;
-    display: block;
-  }
-
-  /* Definición del movimiento */
-  @keyframes rotacion-sutil {
-    from {
-      transform: rotate(0deg);
+    /* Animación del Logo */
+    .rotating-logo {
+        animation: rotacion-sutil 30s linear infinite;
+        display: block;
     }
-    to {
-      transform: rotate(360deg);
+
+    @keyframes rotacion-sutil {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
     }
-  }
-.logo img:hover {
-    animation-play-state: paused;
-    cursor: pointer;
-  }
-  /* Pausar rotación si el usuario prefiere no tener movimiento (Accesibilidad) */
-  @media (prefers-reduced-motion: reduce) {
-    .logo img {
-      animation: none;
-    }
-  }
-	
 </style>

@@ -190,22 +190,20 @@ import Layout from '../layouts/Layout.astro';
 
   <script>
     const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.15 
+      threshold: 0.05 // Menor umbral para que dispare antes
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('active');
-          // Una vez animado, dejamos de observar para mejorar rendimiento
           observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
 
-    document.addEventListener('DOMContentLoaded', () => {
+    // Usar un pequeño delay para que la página cargue primero el scroll
+    window.addEventListener('load', () => {
       const targets = document.querySelectorAll('.reveal');
       targets.forEach(target => observer.observe(target));
     });
@@ -244,6 +242,7 @@ import Layout from '../layouts/Layout.astro';
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 8%;
+    width: 100%;
   }
   .nav-links {
     display: flex;
@@ -340,24 +339,27 @@ import Layout from '../layouts/Layout.astro';
   }
 
   /* --- BANNER --- */
-  .banner-forest {
+ .banner-forest {
+    width: 100%;
     min-height: 75vh;
     background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/bosque.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     color: white;
     text-align: center;
     margin: 6rem 0;
-  }
-  .banner-text {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(35px, 6vw, 75px);
-    line-height: 0.5; /* Corregido para que no se pisen las frases */
+    padding: 0 5%; /* Padding para que el texto no toque bordes */
   }
 
+  .banner-text {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(30px, 6vw, 75px);
+    line-height: 1.1; /* IMPORTANTE: No usar 0.5 o se pisa el texto */
+  }
   /* --- BOTONES --- */
   .btn-cta {
     display: inline-block;
@@ -431,10 +433,11 @@ import Layout from '../layouts/Layout.astro';
 
   /* Ajuste para móvil */
   @media (max-width: 768px) {
-    .logos-grid {
-      grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
-      gap: 2rem;
+    .nav-links {
+      gap: 1rem; /* Mucho más pequeño para iPhone 12 */
+      font-size: 0.9rem;
     }
+    .navbar { padding: 1rem 5%; }
   }
   
   
