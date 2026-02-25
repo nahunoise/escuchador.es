@@ -9,7 +9,7 @@ import Layout from '../layouts/Layout.astro';
     </div>
     <ul class="nav-links">
       <li><a href="#inicio">inicio</a></li>
-      <li><a href="#servicios">servicios</a></li>
+      <li><a href="#servicios">¿cómo funciona?</a></li>
       <li><a href="#contacto">contacto</a></li>
     </ul>
   </nav>
@@ -433,6 +433,16 @@ import Layout from '../layouts/Layout.astro';
       gap: 2rem;
     }
   }
+  
+  
+@media (max-width: 1024px) {
+    .section-padding { padding: 5rem 5%; } /* Reducimos padding lateral */
+    .hero, .split-section { grid-template-columns: 1fr; text-align: center; }
+    .hero-content { display: flex; flex-direction: column; align-items: center; }
+    .reverse .visual { order: -1; }
+    .grid-three { grid-template-columns: 1fr; }
+    .h2-large { font-size: clamp(40px, 12vw, 60px); margin-bottom: 2rem; }
+  }
 
   /* --- ESTRUCTURA PROCESO --- */
   .proceso-container {
@@ -457,5 +467,24 @@ import Layout from '../layouts/Layout.astro';
   .mask-capsule.small {
     width: 100%;
     height: 250px; /* Tamaño controlado para los pasos */
+  }
+
+  /* ESTA ES LA CORRECCIÓN PARA IPHONE/MÓVIL */
+  @media (max-width: 768px) {
+    .proceso-item {
+      grid-template-columns: 1fr; /* Una sola columna */
+      gap: 2rem;
+      text-align: center;
+    }
+    .proceso-img {
+      width: 150px; /* Imagen un poco más pequeña en móvil */
+      margin: 0 auto; /* Centrada */
+    }
+    .proceso-text h3 {
+      font-size: 2rem; /* Título más manejable */
+    }
+    .mask-capsule.small {
+      height: 200px;
+    }
   }
 </style>
