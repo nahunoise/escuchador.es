@@ -189,25 +189,29 @@ import Layout from '../layouts/Layout.astro';
   </main>
 
   <script>
-    const observerOptions = {
-      threshold: 0.05 // Menor umbral para que dispare antes
-    };
+  const observerOptions = {
+    root: null,
+    threshold: 0.1
+  };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Usamos requestAnimationFrame para que la animación no bloquee el hilo principal
+        requestAnimationFrame(() => {
           entry.target.classList.add('active');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    // Usar un pequeño delay para que la página cargue primero el scroll
-    window.addEventListener('load', () => {
-      const targets = document.querySelectorAll('.reveal');
-      targets.forEach(target => observer.observe(target));
+        });
+        observer.unobserve(entry.target);
+      }
     });
-  </script>
+  }, observerOptions);
+
+  // IMPORTANTE: 'DOMContentLoaded' es más rápido que 'load'
+  document.addEventListener('DOMContentLoaded', () => {
+    const targets = document.querySelectorAll('.reveal');
+    targets.forEach(target => observer.observe(target));
+  });
+</script>
 </Layout>
 
 <style>
@@ -237,20 +241,34 @@ import Layout from '../layouts/Layout.astro';
   }
 
   /* --- NAVBAR --- */
-  .navbar {
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 8%;
-    width: 100%;
-  }
-  .nav-links {
-    display: flex;
-    gap: 3rem;
-    list-style: none;
-    text-transform: lowercase;
+    /* Asegura que el navbar no se estire más que el contenido */
+    max-width: 1400px; 
+    margin: 0 auto;
   }
 
+  .nav-links {
+    display: flex;
+    gap: 2rem; /* Reducido de 3rem para compactar */
+    list-style: none;
+  }
+
+  /* Ajuste para móvil (iPhone 12) */
+  @media (max-width: 768px) {
+    .navbar {
+      padding: 1rem 5%;
+    }
+    .nav-links {
+      gap: 1.2rem; /* Espacio cómodo en pantallas pequeñas */
+    }
+    .nav-links a {
+      font-size: 0.85rem; /* Un poco más pequeño para que quepa todo */
+    }
+  }
   .rotating-logo {
     animation: rotacion-sutil 25s linear infinite;
   }
