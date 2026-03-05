@@ -9,7 +9,7 @@ import Layout from '../layouts/Layout.astro';
     </div>
     <ul class="nav-links">
       <li><a href="#inicio">inicio</a></li>
-      <li><a href="#servicios">¿cómo funciona?</a></li>
+      <li><a href="#servicios">Servicio</a></li>
       <li><a href="#contacto">contacto</a></li>
     </ul>
   </nav>
@@ -22,7 +22,7 @@ import Layout from '../layouts/Layout.astro';
         <p class="body-text">
           Combinamos diseño acústico e Inteligencia Artificial para medir tu biodiversidad y crear experiencias de lujo sostenibles.
         </p>
-        <a href="#contacto" class="btn-cta">Solicitar un diagnóstico bioacústico</a>
+        <button class="btn-cta btn-open-modal">Solicitar un diagnóstico estratégico</button>
       </div>
       <div class="hero-image">
         <div class="mask-capsule">
@@ -175,13 +175,13 @@ import Layout from '../layouts/Layout.astro';
                 <li>Fotos profesionales para marketing</li>
             </ul>
         </div>
-        <a href="#" class="btn-cta reveal">Activar el potencial</a>
+        <button class="btn-cta btn-open-modal">Activar el potencial</button>
     </section>
 
     <footer class="contacto reveal" id="contacto">
       <h2 class="h2-large">Contacto</h2>
       <div class="info">
-        <p>hola@escuchador.es</p>
+        <p>ventas@escuchador.es</p>
         <p>+34 604 831 787</p>
         <p>Madrid, España</p>
       </div>
@@ -211,7 +211,99 @@ import Layout from '../layouts/Layout.astro';
     const targets = document.querySelectorAll('.reveal');
     targets.forEach(target => observer.observe(target));
   });
+
+
+
+
+ document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('contactModal');
+    const formContainer = document.getElementById('formContainer');
+    const successMessage = document.getElementById('successMessage');
+    const form = document.getElementById('escuchadoresForm');
+    const openButtons = document.querySelectorAll('.btn-open-modal');
+    const closeBtns = document.querySelectorAll('.close-button, .close-button-alt');
+
+    if (!modal) return;
+
+    // Abrir Modal
+    openButtons.forEach(btn => {
+      btn.onclick = (e) => {
+        e.preventDefault();
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        // Resetear vista al abrir
+        formContainer.style.display = 'block';
+        successMessage.style.display = 'none';
+      };
+    });
+
+    // Cerrar Modal
+    closeBtns.forEach(btn => {
+      btn.onclick = () => {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      };
+    });
+
+    // Envío del Formulario vía AJAX
+    form.onsubmit = async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      
+      // Cambia 'TU_ID_FORMSPREE' por tu código real de Formspree
+      const response = await fetch('https://formspree.io/f/xpqyajry', {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        formContainer.style.display = 'none';
+        successMessage.style.display = 'block';
+        form.reset();
+      } else {
+        alert('Hubo un error. Por favor, inténtalo de nuevo.');
+      }
+    };
+
+    window.onclick = (event) => {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    };
+  });
+
 </script>
+
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <span class="close-button">&times;</span>
+    
+    <div id="formContainer">
+      <h2 class="h2-modal">Diagnóstico Estratégico</h2>
+      <p class="modal-subtitle">Analizamos el potencial sonoro de tu propiedad.</p>
+      
+      <form id="escuchadoresForm" class="popup-form">
+        <input type="text" name="nombre" placeholder="Nombre completo" required />
+        <div class="form-row-popup">
+          <input type="email" name="email" placeholder="Email" required />
+          <input type="tel" name="telefono" placeholder="Teléfono" required />
+        </div>
+        <input type="text" name="hotel" placeholder="Nombre del Hotel / Finca" required />
+        <input type="number" name="hectareas" placeholder="Tamaño aproximado (Hectáreas)" required />
+        <button type="submit" class="btn-cta full-width">Enviar solicitud</button>
+      </form>
+    </div>
+
+    <div id="successMessage" style="display: none; padding: 3rem 0;">
+      <h2 class="h2-modal">Estamos escuchando...</h2>
+      <p class="modal-subtitle">Tu solicitud ha sido recibida. En breve, nuestro equipo de especialistas analizará la frecuencia de tu entorno.</p>
+      <button class="btn-cta close-button-alt" style="margin-top: 2rem;">Cerrar</button>
+    </div>
+  </div>
+</div>
+
 </Layout>
 
 <style>
@@ -510,5 +602,100 @@ import Layout from '../layouts/Layout.astro';
     .mask-capsule.small {
       height: 200px;
     }
+  }
+  .modal-content {
+    background-color: #FFFFFF;
+    padding: 4rem; /* Más aire */
+    border-radius: 0px; /* Bordes rectos para un look más arquitectónico/premium */
+    border: 1px solid #2F360D;
+    width: 95%;
+    max-width: 600px;
+  }
+
+  .h2-modal {
+    font-family: 'Instrument Serif', serif;
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Estilos base del Modal */
+  .modal {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.98); /* Fondo blanco puro premium */
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+  }
+
+  .modal-content {
+    background-color: #FFFFFF;
+    padding: clamp(2rem, 5vw, 4rem);
+    border: 1px solid #2F360D;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    text-align: center;
+  }
+
+  .close-button {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 2.5rem;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .popup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .popup-form input {
+    padding: 1rem 0;
+    border: none;
+    border-bottom: 1px solid rgba(47, 54, 13, 0.3);
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    font-size: 1rem;
+  }
+
+  .form-row-popup {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .full-width { width: 100%; margin-top: 2rem; cursor: pointer; }
+
+  .modal-subtitle { opacity: 0.7; font-size: 1.1rem; }
+
+  /* Ajuste para móvil */
+  @media (max-width: 768px) {
+    .form-row-popup { grid-template-columns: 1fr; gap: 1.5rem; }
+    .h2-modal { font-size: 2.2rem; }
+  }
+
+  .popup-form input {
+    /* ... tus estilos anteriores ... */
+    font-size: 16px; /* Tamaño mínimo para evitar zoom en iOS */
+    border-radius: 0;
+    -webkit-appearance: none;
+  }
+
+  .close-button-alt {
+    background: none;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    text-transform: lowercase;
   }
 </style>
