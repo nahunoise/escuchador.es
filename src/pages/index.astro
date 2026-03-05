@@ -72,7 +72,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="content">
         <h2 class="h2-large">Tu paisaje sonoro es una fuente inagotable de historias que contar</h2>
         <p class="body-text">Elevamos la categoría de tu establecimiento ofreciendo una conexión sensorial profunda que el 99% de tu competencia ignora.</p>
-        <a href="#" class="btn-cta">Descubre las historias</a>
+        <a href="https://youtube.com/shorts/8o5jypgypfI?feature=share" class="btn-cta">Descubre las historias</a>
       </div>
     </section>
 
@@ -178,14 +178,34 @@ import Layout from '../layouts/Layout.astro';
         <button class="btn-cta btn-open-modal">Activar el potencial</button>
     </section>
 
-    <footer class="contacto reveal" id="contacto">
-      <h2 class="h2-large">Contacto</h2>
-      <div class="info">
-        <p>ventas@escuchador.es</p>
-        <p>+34 604 831 787</p>
+<footer class="footer-final reveal" id="contacto">
+  <div class="footer-container">
+    <div class="footer-main">
+      <h2 class="h2-large">¿Escuchamos tu entorno?</h2>
+      <p class="body-text">Diseñamos el futuro sonoro de espacios singulares.</p>
+      <button class="btn-cta btn-open-modal">Solicitar acceso al diagnóstico</button>
+    </div>
+    
+    <div class="footer-info">
+      <div class="info-item">
+        <span>Email</span>
+        <p>nahun@escuchador.es</p>
+      </div>
+
+	  <div class="info-item">
+  <span>Fundador</span>
+  <p><a href="https://www.linkedin.com/in/nahun/" target="_blank">Nahun Saldaña ↗</a></p>
+</div>
+      <div class="info-item">
+        <span>Ubicación</span>
         <p>Madrid, España</p>
       </div>
-    </footer>
+      <div class="footer-credits">
+        <p>© 2026 Escuchadores</p>
+      </div>
+    </div>
+  </div>
+</footer>
   </main>
 
   <script>
@@ -498,6 +518,131 @@ import Layout from '../layouts/Layout.astro';
   .beneficios ul { list-style: disc; font-size: 22px; line-height: 2.2; padding-left: 2rem; }
 
   /* --- FOOTER --- */
+  .text-center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra el contenido horizontalmente */
+  justify-content: center;
+}
+
+.beneficios {
+  margin: 4rem auto;
+  text-align: left; /* El bloque se centra, pero el texto interno alinea a la izquierda */
+  max-width: 500px;
+  width: 100%;
+}
+
+.beneficios ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.beneficios ul li {
+  font-size: clamp(18px, 1.5vw, 22px);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.beneficios ul li::before {
+  content: "—";
+  opacity: 0.4;
+}
+
+/* --- NUEVO FOOTER PREMIUM --- */
+.footer-final {
+  padding: 10rem 8% 5rem 8%;
+  background-color: #fafafa; /* Un toque de contraste muy sutil */
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr; /* Separamos mensaje de contacto */
+  gap: 4rem;
+  align-items: flex-end;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-left: 1px solid rgba(47, 54, 13, 0.1);
+  padding-left: 4rem;
+}
+
+.info-item span {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.5;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.info-item p {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.info-item a {
+  text-decoration: none;
+  color: inherit;
+  background-image: linear-gradient(#2F360D, #2F360D); /* Subrayado fino */
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 0.3s;
+  padding-bottom: 2px;
+}
+
+.info-item a:hover {
+  background-size: 100% 1px;
+  opacity: 1; /* Sobrescribimos el opacity:0.7 global para que destaque al pasar el ratón */
+}
+
+/* El símbolo de la flecha ↗ le da el toque de 'Enlace Externo' de lujo */
+.info-item p a::after {
+  content: "";
+  font-size: 0.8rem;
+  margin-left: 5px;
+}
+
+.footer-credits {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  opacity: 0.4;
+}
+
+/* --- RESPONSIVE FIXES --- */
+@media (max-width: 1024px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 6rem;
+  }
+  
+  .footer-info {
+    border-left: none;
+    padding-left: 0;
+    align-items: center;
+  }
+  
+  .footer-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Ajuste para evitar que el h2 del footer pise al botón en móvil */
+@media (max-width: 768px) {
+  .footer-final { padding: 6rem 5%; }
+  .h2-large { margin-bottom: 2rem; }
+}
   .contacto { padding: 10rem 8%; text-align: center; }
   .info { font-size: 26px; margin-top: 3rem; }
 
